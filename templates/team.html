@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon " type="image/png" href="../static/img/favicon.ico" />
+    <title>Haikyuu Selections</title>
+</head>
+
+<style>
+    @media(max-width:768px) {
+        body {
+            background-size: cover;
+        }
+    }
+    
+    body {
+        width: 100%;
+        height: auto;
+        background-color: #fff;
+        background-image: url('../static/img/{{name}}.png');
+        background-position: center;
+        background-size: contain;
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        overflow: hidden;
+    }
+    
+    .text-container {
+        float: left;
+        font-size: 1.8em;
+        font-weight: 850;
+        text-align: center;
+        justify-content: stretch;
+    }
+    
+    .flashes {
+        display: flex;
+        justify-content: center;
+    }
+    
+    .selection-message {
+        display: flex;
+        padding: 3px;
+        font-size: 18px;
+        font-weight: 800;
+        color: #fff;
+        background-color: #000;
+    }
+</style>
+{% with messages = get_flashed_messages() %} {% if messages %}
+<div class=flashes>
+    {% for message in messages %}
+    <span class="selection-message">{{ message }}</span> {% endfor %}
+</div>
+{% endif %} {% endwith %}
+
+<body>
+    <div class="text-container">
+        <h3>
+            <span class="team"> Welcome to {{'{}'.format(name.capitalize().replace('_',' '))}}
+                </span>
+        </h3>
+</body>
+
+</html>
